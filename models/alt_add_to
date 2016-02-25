@@ -1,0 +1,7 @@
+# alt add_entry
+
+def add_entry_2
+
+  entries << entry
+
+  end
