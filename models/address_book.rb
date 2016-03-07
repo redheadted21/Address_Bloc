@@ -21,6 +21,12 @@ class AddressBook
     @entries.insert(index, Entry.new(name, phone_number, email))
   end
 
+  def nuke
+    entries.each do |entry|
+      entries.delete(entry)
+    end
+  end
+
 
 
   def import_from_csv(file_name)

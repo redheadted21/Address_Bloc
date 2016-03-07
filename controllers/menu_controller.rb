@@ -14,7 +14,8 @@ require_relative '../models/address_book'
      puts "2 - Create an entry"
      puts "3 - Search for an entry"
      puts "4 - Import entries from a CSV"
-     puts "5 - Exit"
+     puts "5 - Nuke"
+     puts "6 - Exit"
      print "Enter your selection: "
 
      selection = gets.to_i
@@ -38,6 +39,9 @@ require_relative '../models/address_book'
        read_csv
        main_menu
      when 5
+       delete_all_entries
+       main_menu
+     when 6
        puts "Good-bye!"
 
        exit(0)
@@ -47,6 +51,22 @@ require_relative '../models/address_book'
        puts "Sorry, that is not a valid input"
        main_menu
 
+     end
+   end
+
+   def delete_all_entries
+     puts "Are you sure you would like to delete all entries? Yes or No? "
+     answer = gets.chomp
+
+     if answer == "yes" || "Yes"
+       address_book.nuke
+       system "clear"
+       puts "You have successfully deleted all entries"
+       main_menu
+     else
+       system "clear"
+       puts "Ok, please make another selection"
+       main_menu
      end
    end
 
