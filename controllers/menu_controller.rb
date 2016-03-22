@@ -55,10 +55,11 @@ require_relative '../models/address_book'
    end
 
    def delete_all_entries
+     system "clear"
      puts "Are you sure you would like to delete all entries? Yes or No? "
      answer = gets.chomp
 
-     if answer == "yes" || "Yes"
+     if answer.downcase == "yes"
        address_book.nuke
        system "clear"
        puts "You have successfully deleted all entries"

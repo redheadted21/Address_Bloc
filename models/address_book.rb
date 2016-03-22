@@ -22,9 +22,7 @@ class AddressBook
   end
 
   def nuke
-    entries.each do |entry|
-      entries.delete(entry)
-    end
+    @entries = []
   end
 
 
